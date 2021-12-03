@@ -8,7 +8,9 @@ public class Router extends AbstractActor {
         return receiveBuilder()
                 .match(
                         TestPackageMessage.class,
-                        
+                        message -> {
+                            
+                        }
                 )
     }
 }
