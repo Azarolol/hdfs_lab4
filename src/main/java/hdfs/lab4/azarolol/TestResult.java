@@ -1,6 +1,13 @@
 package hdfs.lab4.azarolol;
 
-public class TestResult {
+import java.util.List;
+
+public class TestResults {
     private final String packageID;
-    private final 
+    private final List<TestResult> testResultList;
+
+
+    public TestResults(String packageID) {
+        this.packageID = packageID;
+    }
 }
