@@ -1,10 +1,12 @@
 package hdfs.lab4.azarolol;
 
 import akka.NotUsed;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
+import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
@@ -14,11 +16,14 @@ import akka.stream.javadsl.Flow;
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
+import static akka.http.javadsl.server.Directives.*;
+
 public class JSTester {
     final static String ACTOR_SYSTEM_NAME = "ActorsRoutes";
     final static String HOST = "localhost";
     final static int PORT = 8080;
     final static String WELCOME_MESSAGE = "Server online at http://" + HOST + ":" + PORT + "/\nPress RETURN to stop...";
+    final static String TEST_STARTED_MESSAGE = "Test started!";
     public static void main (String[] args) throws IOException {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         final Http http = Http.get(system);
@@ -38,6 +43,12 @@ public class JSTester {
     }
 
     private Route createRoute(ActorSystem system) {
-        
+        return route(
+                path("test", () ->
+                        post(() ->
+                            entity(Jackson.unmarshaller(TestPackageMsg.class), msg -> {
+                                testPackageActor.tell(msg, ActorRef.noSender());
+                                return complete(TEST_STARTED_MESSAGE);
+                            }))));
     }
 }
