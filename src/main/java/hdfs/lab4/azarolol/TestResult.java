@@ -1,2 +1,5 @@
-package hdfs.lab4.azarolol;public class TestResult {
+package hdfs.lab4.azarolol;
+
+public class TestResult {
+    private final 
 }
