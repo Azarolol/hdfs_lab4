@@ -15,8 +15,15 @@ public class Keeper extends AbstractActor {
                 )
                 .match(
                         GetResultMessage.class,
-                        
+                        message -> sender().tell(
+                                new ReturnResultsMessage(
+                                        message.getPackageID(),
+                                        storage.get(message.getPackageID())
+                                ),
+                                self()
+                        )
                 )
+                .build();
     }
 
     private void storeResult(TestResultWithID result) {
