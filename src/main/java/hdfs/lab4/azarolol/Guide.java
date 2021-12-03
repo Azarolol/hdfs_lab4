@@ -1,9 +1,10 @@
 package hdfs.lab4.azarolol;
 
 import akka.actor.AbstractActor;
+import akka.routing.Router;
 
-public class Router extends AbstractActor {
-
+public class Guide extends AbstractActor {
+    Router router = new Router(R)
     @Override
     public Receive createReceive() {
         return receiveBuilder()
