@@ -4,7 +4,7 @@ import akka.actor.AbstractActor;
 import akka.routing.Router;
 
 public class Guide extends AbstractActor {
-    Router router = new Router(R)
+    Router router = new Router(Rou)
     @Override
     public Receive createReceive() {
         return receiveBuilder()
