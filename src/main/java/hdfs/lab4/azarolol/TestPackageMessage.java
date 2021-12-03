@@ -15,7 +15,25 @@ public class TestPackageMessage {
             @JsonProperty("jsScript") String jsScript,
             @JsonProperty("functionName") String functionName,
             @JsonProperty("tests") Test[] tests) {
-        
+        this.packageID = packageID;
+        this.jsScript = jsScript;
+        this.functionName = functionName;
+        this.tests = tests;
     }
-    )
+
+    public String getPackageID() {
+        return packageID;
+    }
+
+    public String getJsScript() {
+        return jsScript;
+    }
+
+    public String getFunctionName() {
+        return functionName;
+    }
+
+    public Test[] getTests() {
+        return tests;
+    }
 }
