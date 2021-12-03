@@ -10,7 +10,7 @@ public class Tester extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-                        Test.class,
+                        TestPackageMessage.class,
                         message -> sender().tell(
                                 runTest(message),
                                 self()
@@ -19,13 +19,13 @@ public class Tester extends AbstractActor {
                 .build();
     }
 
-    private parseJS (Test test) {
+    private parseJS(TestPackageMessage test) {
         ScriptEngine engine = new
                 ScriptEngineManager().getEngineByName(ENGINE_NAME);
-        engine.eval()
+        engine.eval(test.getJsScript())
     }
 
-    private TestResult runTest(Test test) {
+    private TestResult runTest(TestPackageMessage test) {
 
     }
 }
