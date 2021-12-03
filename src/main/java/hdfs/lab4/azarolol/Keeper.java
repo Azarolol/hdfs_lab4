@@ -14,7 +14,8 @@ public class Keeper extends AbstractActor {
                         this::storeResult
                 )
                 .match(
-
+                        GetResultMessage.class,
+                        
                 )
     }
 
