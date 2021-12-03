@@ -17,6 +17,7 @@ public class JSTester {
     final static String ACTOR_SYSTEM_NAME = "ActorsRoutes";
     final static String HOST = "localhost";
     final static int PORT = 8080;
+    final static String WELCOME_MESSAGE = "Server online at http://" + HOST + ":" + PORT + "/\nPress RETURN to stop...";
     public static void main (String[] args) throws IOException {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         final Http http = Http.get(system);
@@ -28,7 +29,7 @@ public class JSTester {
                 ConnectHttp.toHost(HOST, PORT),
                 materializer
         );
-        System.out.println("Server online at http://" + HOST + ":" + PORT + "/\nPress RETURN to stop...");
+        System.out.println(WELCOME_MESSAGE);
         System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
