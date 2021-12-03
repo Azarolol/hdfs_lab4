@@ -1,5 +1,6 @@
 package hdfs.lab4.azarolol;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestResults {
@@ -9,7 +10,7 @@ public class TestResults {
 
     public TestResults(String packageID) {
         this.packageID = packageID;
-        
+        this.testResultList = new ArrayList<>();
     }
 
     public String getPackageID() {

@@ -3,18 +3,20 @@ package hdfs.lab4.azarolol;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class TestPackageMessage {
     private final String packageID;
     private final String jsScript;
     private final String functionName;
-    private final Test[] tests;
+    private final List<Test> tests;
 
     @JsonCreator
     public TestPackageMessage(
             @JsonProperty("packageId") String packageID,
             @JsonProperty("jsScript") String jsScript,
             @JsonProperty("functionName") String functionName,
-            @JsonProperty("tests") Test[] tests) {
+            @JsonProperty("tests") List<Test> tests) {
         this.packageID = packageID;
         this.jsScript = jsScript;
         this.functionName = functionName;
@@ -33,7 +35,7 @@ public class TestPackageMessage {
         return functionName;
     }
 
-    public Test[] getTests() {
+    public List<Test> getTests() {
         return tests;
     }
 }
