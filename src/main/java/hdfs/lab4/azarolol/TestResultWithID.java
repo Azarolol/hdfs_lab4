@@ -15,7 +15,7 @@ public class TestResultWithID {
         return packageID;
     }
 
-    public TestResult getTestResultList () {
+    public TestResult getTestResult () {
         return testResult;
     }
 }
