@@ -5,7 +5,7 @@ import akka.actor.AbstractActor;
 import java.util.*;
 
 public class Keeper extends AbstractActor {
-    private Map<String, List<TestResult>> storage = new HashMap<>();
+    private final Map<String, List<TestResult>> storage = new HashMap<>();
     @Override
     public Receive createReceive() {
         return receiveBuilder()
