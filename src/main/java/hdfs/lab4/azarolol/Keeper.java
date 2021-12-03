@@ -8,7 +8,11 @@ public class Keeper extends AbstractActor {
         return receiveBuilder()
                 .match(
                         TestResult.class,
-                        message -> 
+                        this::storeResult
                 )
+    }
+
+    private void storeResult(TestResult result) {
+
     }
 }
