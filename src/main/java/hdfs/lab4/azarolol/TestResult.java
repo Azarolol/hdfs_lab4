@@ -1,12 +1,17 @@
 package hdfs.lab4.azarolol;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TestResult {
     private final String testName;
     private final String expectedResult;
     private final String receivedResult;
 
-
-    public TestResult(String testName, String expectedResult, String receivedResult) {
+    @JsonCreator
+    public TestResult(@JsonProperty("testName") String testName,
+                      @JsonProperty ("expectedResult") String expectedResult,
+                      @JsonProperty("receivedResult") String receivedResult) {
         this.testName = testName;
         this.expectedResult = expectedResult;
         this.receivedResult = receivedResult;
