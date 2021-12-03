@@ -24,6 +24,7 @@ public class JSTester {
     final static int PORT = 8080;
     final static String WELCOME_MESSAGE = "Server online at http://" + HOST + ":" + PORT + "/\nPress RETURN to stop...";
     final static String TEST_STARTED_MESSAGE = "Test started!";
+    final static String TEST_SEGMENT = "test";
     public static void main (String[] args) throws IOException {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         final Http http = Http.get(system);
@@ -44,7 +45,7 @@ public class JSTester {
 
     private Route createRoute(ActorSystem system) {
         return route(
-                path("test", () ->
+                path(TEST_SEGMENT, () ->
                         post(() ->
                             entity(Jackson.unmarshaller(TestPackageMsg.class), msg -> {
                                 testPackageActor.tell(msg, ActorRef.noSender());
