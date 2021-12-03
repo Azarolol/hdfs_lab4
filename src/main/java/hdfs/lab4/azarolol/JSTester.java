@@ -47,7 +47,7 @@ public class JSTester {
         return route(
                 path(TEST_SEGMENT, () ->
                         post(() ->
-                            entity(Jackson.unmarshaller(TestPackageMsg.class), msg -> {
+                            entity(Jackson.unmarshaller(TestPackageMessage.class), msg -> {
                                 testPackageActor.tell(msg, ActorRef.noSender());
                                 return complete(TEST_STARTED_MESSAGE);
                             }))));

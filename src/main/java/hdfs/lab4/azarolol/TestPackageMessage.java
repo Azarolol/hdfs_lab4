@@ -1,2 +1,5 @@
-package hdfs.lab4.azarolol;public class TestPackageMessage {
+package hdfs.lab4.azarolol;
+
+public class TestPackageMessage {
+    
 }
