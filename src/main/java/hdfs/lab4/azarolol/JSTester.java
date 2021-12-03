@@ -14,7 +14,7 @@ public class JSTester {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        MainHttp instance = new MainHttp(system);
+        JSTester instance = new JSTester();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute(system).flow(system, materializer);
 
     }
