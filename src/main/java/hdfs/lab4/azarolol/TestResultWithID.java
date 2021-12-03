@@ -1,27 +1,21 @@
 package hdfs.lab4.azarolol;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class TestResults {
+public class TestResultWithID {
     private final String packageID;
-    private final List<TestResult> testResultList;
+    private final TestResult testResult;
 
 
-    public TestResults(String packageID) {
+    public TestResultWithID(String packageID, TestResult testResult) {
         this.packageID = packageID;
-        this.testResultList = new ArrayList<>();
+        this.testResult = testResult;
     }
 
     public String getPackageID() {
         return packageID;
     }
 
-    public List<TestResult> getTestResultList () {
-        return testResultList;
-    }
-
-    public void addResult(TestResult result) {
-        this.testResultList.add(result);
+    public TestResult getTestResultList () {
+        return testResult;
     }
 }
