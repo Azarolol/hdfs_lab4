@@ -9,5 +9,18 @@ public class TestResults {
 
     public TestResults(String packageID) {
         this.packageID = packageID;
+        
+    }
+
+    public String getPackageID() {
+        return packageID;
+    }
+
+    public List<TestResult> getTestResultList () {
+        return testResultList;
+    }
+
+    public void addResult(TestResult result) {
+        this.testResultList.add(result);
     }
 }
