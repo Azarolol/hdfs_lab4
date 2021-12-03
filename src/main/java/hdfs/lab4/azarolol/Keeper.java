@@ -7,8 +7,8 @@ public class Keeper extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-
-
+                        TestResult.class,
+                        message -> 
                 )
     }
 }
