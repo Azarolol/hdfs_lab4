@@ -2,6 +2,9 @@ package hdfs.lab4.azarolol;
 
 import akka.actor.AbstractActor;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 public class Tester extends AbstractActor {
     @Override
     public Receive createReceive() {
@@ -16,7 +19,13 @@ public class Tester extends AbstractActor {
                 .build();
     }
 
+    private parseJS (Test test) {
+        ScriptEngine engine = new
+                ScriptEngineManager().getEngineByName(ENGINE_NAME);
+        engine.eval()
+    }
+
     private TestResult runTest(Test test) {
-        
+
     }
 }
