@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Keeper extends AbstractActor {
-    private Map<String, List<TestResult>> 
+    private Map<String, List<TestResult>> storage
     @Override
     public Receive createReceive() {
         return receiveBuilder()
