@@ -11,7 +11,7 @@ public class Test {
     private final String functionName;
     private final String jsScript;
     private final String expectedResult;
-    private final List<Object> params;
+    private final Object[] params;
 
     @JsonCreator
     public Test(@JsonProperty("packageId") String packageID,
@@ -19,7 +19,7 @@ public class Test {
                 @JsonProperty("functionName") String functionName,
                 @JsonProperty("jsScript") String jsScript,
                 @JsonProperty("expectedResult") String expectedResult,
-                @JsonProperty("params") List<Object> params) {
+                @JsonProperty("params") Object[] params) {
         this.packageID = packageID;
         this.testName = testName;
         this.functionName = functionName;
@@ -48,7 +48,7 @@ public class Test {
         return jsScript;
     }
 
-    public List<Object> getParams() {
+    public Object[] getParams() {
         return params;
     }
 }
