@@ -29,7 +29,7 @@ public class JSTester {
     final static String TEST_STARTED_MESSAGE = "Test started!";
     final static String TEST_SEGMENT = "test";
     final static String RESULT_SEGMENT = "result";
-    final static int NUMBER_OF_TESTERS = 3;
+    final static String NUMBER_OF_TESTERS = "3";
     public static void main (String[] args) throws IOException {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         ActorRef guide = system.actorOf(Props.create(Guide.class), NUMBER_OF_TESTERS);
