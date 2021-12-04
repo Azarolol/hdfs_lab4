@@ -27,7 +27,7 @@ public class Tester extends AbstractActor {
                 ScriptEngineManager().getEngineByName(ENGINE_NAME);
         engine.eval(test.getJsScript());
         Invocable invocable = (Invocable) engine;
-        return invocable.invokeFunction(test.getTestName(), test.getParams()).toString();
+        return invocable.invokeFunction(test.getFunctionName(), test.getParams()).toString();
     }
 
     private TestResult runTest(Test test) throws ScriptException, NoSuchMethodException {

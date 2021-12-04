@@ -7,16 +7,19 @@ import java.util.List;
 
 public class Test {
     private final String testName;
+    private final String functionName;
     private final String jsScript;
     private final String expectedResult;
     private final List<Object> params;
 
     @JsonCreator
     public Test(@JsonProperty("testName") String testName,
+                @JsonProperty("functionName") String functionName,
                 @JsonProperty("jsScript") String jsScript,
                 @JsonProperty("expectedResult") String expectedResult,
                 @JsonProperty("params") List<Object> params) {
         this.testName = testName;
+        this.functionName = functionName;
         this.jsScript = jsScript;
         this.expectedResult = expectedResult;
         this.params = params;
@@ -28,6 +31,10 @@ public class Test {
 
     public String getTestName() {
         return testName;
+    }
+
+    public String getFunctionName() {
+        return functionName;
     }
 
     public String getJsScript() {
