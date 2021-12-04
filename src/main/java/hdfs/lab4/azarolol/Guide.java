@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Guide extends AbstractActor {
+    final static int NUMBER_OF_TESTERS = 3;
     private final Router router;
     private final ActorRef keeper;
-    public Guide(String STRING_NUMBER_OF_TESTERS) {
+    public Guide() {
         List<Routee> routes= new ArrayList<>();
-        final int NUMBER_OF_TESTERS = Integer.parseInt(STRING_NUMBER_OF_TESTERS);
         for (int i = 0; i < NUMBER_OF_TESTERS; i++) {
             ActorRef tester = getContext().actorOf(Props.create(Tester.class));
             routes.add(new ActorRefRoutee(tester));
