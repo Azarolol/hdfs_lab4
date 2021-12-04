@@ -31,7 +31,8 @@ public class Guide extends AbstractActor {
                         TestPackageMessage.class,
                         message -> {
                             for (Test test: message.getTests()) {
-                                router.route(test, keeper);
+                                router.route(new Test(test.getTestName(), message.getJsScript(), test.getExpectedResult(), test.getParams()),
+                                        keeper);
                             }
                         }
                 )
