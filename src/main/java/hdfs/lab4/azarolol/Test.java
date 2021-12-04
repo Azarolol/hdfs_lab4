@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class Test {
+    private final String packageID;
     private final String testName;
     private final String functionName;
     private final String jsScript;
@@ -13,16 +14,22 @@ public class Test {
     private final List<Object> params;
 
     @JsonCreator
-    public Test(@JsonProperty("testName") String testName,
+    public Test(@JsonProperty("packageId") String packageID,
+                @JsonProperty("testName") String testName,
                 @JsonProperty("functionName") String functionName,
                 @JsonProperty("jsScript") String jsScript,
                 @JsonProperty("expectedResult") String expectedResult,
                 @JsonProperty("params") List<Object> params) {
+        this.packageID = packageID;
         this.testName = testName;
         this.functionName = functionName;
         this.jsScript = jsScript;
         this.expectedResult = expectedResult;
         this.params = params;
+    }
+
+    public String getPackageID() {
+        return packageID;
     }
 
     public String getExpectedResult() {

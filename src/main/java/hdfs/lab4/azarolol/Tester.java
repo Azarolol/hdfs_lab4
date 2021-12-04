@@ -30,11 +30,14 @@ public class Tester extends AbstractActor {
         return invocable.invokeFunction(test.getFunctionName(), test.getParams()).toString();
     }
 
-    private TestResult runTest(Test test) throws ScriptException, NoSuchMethodException {
-        return new TestResult(
-                test.getTestName(),
-                test.getExpectedResult(),
-                parseJS(test)
+    private TestResultWithID runTest(Test test) throws ScriptException, NoSuchMethodException {
+        return new TestResultWithID(
+                test.getPackageID(),
+                new TestResult(
+                    test.getTestName(),
+                    test.getExpectedResult(),
+                    parseJS(test)
+                )
         );
     }
 }
