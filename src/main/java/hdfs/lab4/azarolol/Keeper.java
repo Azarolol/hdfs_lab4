@@ -10,7 +10,7 @@ public class Keeper extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-                        TestResult.class,
+                        TestResultWithID.class,
                         this::storeResult
                 )
                 .match(
@@ -26,7 +26,7 @@ public class Keeper extends AbstractActor {
                 .build();
     }
 
-    private void storeResult(TestResultWi result) {
+    private void storeResult(TestResultWithID result) {
         String packageID = result.getPackageID();
         if (storage.containsKey(packageID)) {
             storage.get(packageID).add(result.getTestResult());
