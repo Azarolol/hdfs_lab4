@@ -13,7 +13,6 @@ public class TestResult {
 
     @JsonCreator
     public TestResult(@JsonProperty("testName") String testName,
-                      @JsonProperty("ifPassed") boolean ifPassed,
                       @JsonProperty ("expectedResult") String expectedResult,
                       @JsonProperty("receivedResult") String receivedResult) {
         this.testName = testName;
