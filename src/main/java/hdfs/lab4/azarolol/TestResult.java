@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class TestResult {
     private final String testName;
-    private final boolean passed;
     private final String expectedResult;
     private final String receivedResult;
 
@@ -16,7 +15,6 @@ public class TestResult {
                       @JsonProperty ("expectedResult") String expectedResult,
                       @JsonProperty("receivedResult") String receivedResult) {
         this.testName = testName;
-        this.passed = Objects.equals(expectedResult, receivedResult);
         this.expectedResult = expectedResult;
         this.receivedResult = receivedResult;
     }
